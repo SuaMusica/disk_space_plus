@@ -11,11 +11,6 @@ class DiskSpacePlusPlugin: FlutterPlugin {
     private var channel: MethodChannel? = null
     private var handler: MethodHandlerImpl = MethodHandlerImpl()
 
-    @JvmStatic
-    fun registerWith(registrar: PluginRegistry.Registrar) {
-      registerChannel(registrar.messenger())
-    }
-
     private fun registerChannel(messenger: BinaryMessenger) {
       channel = MethodChannel(messenger, "disk_space_plus")
       channel!!.setMethodCallHandler(handler)
